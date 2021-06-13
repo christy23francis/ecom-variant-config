@@ -1,0 +1,33 @@
+<div class="variant-dashboard-container">
+    <div class="variant-dashboard-header">
+        Variants
+    </div>
+    <div class="variant-selection-container">
+        <select [(ngModel)]="selectedVariant" (ngModelChange)="onChanged()">
+            <option [ngValue]="i" *ngFor="let item of variantList, let i = index">{{item.variantCode}}</option>
+            <option [ngValue]="'addNew'">Add new Variant</option>
+        </select>
+    </div>
+    <div class="variant-list-container" *ngIf="selectedIndex !== -1">
+        <div class="variant-container" *ngFor="let variant of variantList[selectedIndex].attributeList, let i = index">
+            <div class="variant-header">
+                {{variant.name}}
+            </div>
+            <div class="variant-checkbox-container">
+                <label class="container" *ngFor="let attribute of variant.list">
+                    <input type="checkbox" (input)="checkBoxChecked($event, attribute, i)">{{attribute}}
+                </label>
+            </div>
+        </div>
+    </div>
+    <div class="combination-container">
+        <tr>
+            <th>Sl.No</th>
+            <th>CominationList</th>
+        </tr>
+        <tr *ngFor="let combo of combinationList">
+            <!-- <td>{{combo.number}}</td>
+            <td>{{combo.combination</td> -->
+        </tr>
+    </div>
+</div>
