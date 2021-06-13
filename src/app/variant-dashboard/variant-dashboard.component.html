@@ -3,6 +3,7 @@
         Variants
     </div>
     <div class="variant-selection-container">
+        Variant Framework Code:
         <select [(ngModel)]="selectedVariant" (ngModelChange)="onChanged()">
             <option [ngValue]="i" *ngFor="let item of variantList, let i = index">{{item.variantCode}}</option>
             <option [ngValue]="'addNew'">Add new Variant</option>
@@ -21,13 +22,15 @@
         </div>
     </div>
     <div class="combination-container">
-        <tr>
-            <th>Sl.No</th>
-            <th>CominationList</th>
-        </tr>
-        <tr *ngFor="let combo of combinationList">
-            <!-- <td>{{combo.number}}</td>
-            <td>{{combo.combination</td> -->
-        </tr>
+        <table>
+            <tr>
+                <th>Sl.No</th>
+                <th>CombinationList</th>
+            </tr>
+            <tr *ngFor="let combos of combinationList, let count=index">
+                <td>{{count + 1}}</td>
+                <td><span *ngFor="let combo of combos">{{combo}}/</span></td>
+            </tr>
+        </table>
     </div>
 </div>
