@@ -67,6 +67,7 @@ export class VariantDashboardComponent implements OnInit {
     if (this.selectedVariant == 'addNew') {
       this.addNewVariant();
     } else {
+      this.combinationList = [];
       this.selectedIndex = parseInt(this.selectedVariant);
       for (let i = 0; i < this.variantList[this.selectedIndex].attributeList.length; i++) {
         let temp: never[] = [];
